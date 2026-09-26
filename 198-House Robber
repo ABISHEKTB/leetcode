@@ -1,0 +1,12 @@
+public class Solution {
+    public int rob(int[] nums) {
+        int robBefore = 0;
+        int robLast = 0;  
+        for (int curMoney : nums) {
+            int currentMax = Math.max(curMoney + robBefore, robLast);
+            robBefore = robLast;
+            robLast = currentMax;
+        }
+        return robLast;
+    }
+}
